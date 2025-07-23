@@ -1,4 +1,4 @@
-import { Barlow_400Regular, Barlow_600SemiBold, Barlow_700Bold, useFonts } from '@expo-google-fonts/barlow';
+import { Barlow_400Regular, Barlow_500Medium, Barlow_600SemiBold, Barlow_700Bold, useFonts } from '@expo-google-fonts/barlow';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts as useMonoFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
@@ -14,6 +14,7 @@ export default function RootLayout() {
 
     const [barlowLoaded] = useFonts({
     Barlow_400Regular,
+    Barlow_500Medium,
     Barlow_600SemiBold,
     Barlow_700Bold,
   });
