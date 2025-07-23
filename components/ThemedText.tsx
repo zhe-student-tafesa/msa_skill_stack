@@ -74,11 +74,13 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontWeight: '600',
   },
+  // Done
   title: {
     // color: '#ffffff', working
-    fontSize: 34,
+    fontSize: 22,
     fontWeight: '600', // SemiBold
-    lineHeight: 34,
+    lineHeight: 22,
+    fontFamily: 'Barlow_600SemiBold',
   },
   subtitle: {
     fontSize: 20,
