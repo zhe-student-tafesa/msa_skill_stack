@@ -12,7 +12,7 @@ export function useThemeColor(
 ) {
   const theme = useColorScheme() ?? 'light';
   const colorFromProps = props[theme];
-
+// Used to get a certain color based on the current theme (the color passed in by props is used first, otherwise fallback to the default theme color)
   if (colorFromProps) {
     return colorFromProps;
   } else {
