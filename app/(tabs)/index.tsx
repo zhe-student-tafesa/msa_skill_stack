@@ -39,7 +39,7 @@ export default function HomeScreen() {
           <Button title="+" onPress={() => dispatch(increment())} />
           <Button title="-" onPress={() => dispatch(decrement())} />
           <Button title="Reset" onPress={() => dispatch(reset())} />
-          <Link href={"/test/test"}> Test </Link>
+          <Link href={"/test/test"}> Nav to Test </Link>
         </View>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
