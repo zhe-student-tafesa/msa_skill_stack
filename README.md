@@ -51,4 +51,5 @@ Join our community of developers creating universal apps.
 
 1. npx expo start --tunnel
 2. WEB: http://localhost:8081/
+3. When debug Redux using browser, use 'Link' to other page, Do Not use open 'new browser tab'!!
 
