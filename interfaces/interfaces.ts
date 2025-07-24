@@ -8,15 +8,31 @@ export interface UserProfile {
   savedModules: string[];
   inProgressModules: string[];
   createDate: string;
-
   // ✅  use webhook to update the subscriptionStatus
   subscriptionStatus: SubscriptionTier;
   hasActiveSubscription: boolean; //
   purchasedModuleIds: string[];
   subscriptionPackage?: string; // e.g. 'monthly', 'annual_team', 'payg'
-
   // ✅ New field: Record detailed subscription records (multiple options available)
   subscriptionHistory?: SubscriptionRecord[]; // optional
+  userInterests?: UserInterests;
+  enterpriseId?: string; // If you are an enterprise user, point to EnterpriseAccount.id
+  isEnterpriseAdmin?: boolean; //
+}
+
+export interface Module {
+  id: string;
+  title: string;
+  description: string;
+  type: "video" | "pdf" | "quiz" | "other"; // V1 only video
+  industries: string[]; // ✅   "Construction", "Mining"
+  tags?: string[]; // Used for filtering like "New", "Recommended", "Popular", etc.
+  duration: string; // e.g. '12m 45s'
+  uploadDate: string; // ISO format
+  accessType: ModuleAccessType;
+  price?: number; // only present if accessType is 'paid'
+  videoUrl?: string;
+  previewImageUrl?: string;
 }
 
 export interface SubscriptionRecord {
@@ -51,23 +67,10 @@ export type AgeRange =
 
 export type ModuleAccessType = "free" | "paid";
 
-export interface Module {
-  id: string;
-  title: string;
-  description: string;
-  type: "video" | "pdf" | "quiz" | "other"; // V1 only video
-  industry: string; // ✅   "Construction", "Mining"
-  duration: string; // e.g. '12m 45s'
-  uploadDate: string; // ISO format
-  accessType: ModuleAccessType;
-  price?: number; // only present if accessType is 'paid'
-  videoUrl?: string;
-  previewImageUrl?: string;
-}
-
 export interface ModuleProgress {
   moduleId: string;
   progress: number; // e.g. 0.5 for 50%
+  status: "not-started" | "in-progress" | "completed" | "paused";
   lastAccessed: string; // ISO datetime
 }
 
@@ -84,4 +87,39 @@ export interface AppState {
   modules: Module[];
   homeModules: HomePageModules;
   savedModules: Module[];
+}
+
+export interface UserInterests {
+  goals: string[]; // e.g. ["Personal development", "Upskill for my current job"]
+  industries: string[]; // e.g. ["Mining", "Energy"]
+  learningStyles: string[]; // e.g. ["Watching short videos", "Listening to audio"]
+}
+
+export interface EnterpriseAccount {
+  id: string; //  ID
+  name: string; //
+  contactEmail: string; // admin email
+  country: string;
+  city?: string;
+
+  branding?: {
+    logoUrl?: string;
+    primaryColor?: string;
+    tagline?: string;
+  };
+
+  // Which users belong to this enterprise?
+  memberUserIds: string[];
+
+  // Enterprise subscription information (corresponding to RevenueCat)
+  subscription: {
+    status: "active" | "inactive" | "expired";
+    tier: SubscriptionTier; // e.g. 'Team'
+    renewalType: "monthly" | "annual";
+    startDate: string;
+    endDate: string;
+    transactionId?: string;
+  };
+
+  createdAt: string;
 }
