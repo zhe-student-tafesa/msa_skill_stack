@@ -32,7 +32,9 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Redux Counter Example</ThemedText>
         <ThemedText>Count: {count}</ThemedText>
-        <View style={{ flexDirection: "row", gap: 8, marginTop: 8 }}>
+
+        <View style={{ flexDirection: 'row', gap: 8, marginTop: 8 }}>
+
           {/* step 4	Redux: dispatch action */}
           <Button title="+" onPress={() => dispatch(increment())} />
           <Button title="-" onPress={() => dispatch(decrement())} />
