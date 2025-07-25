@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "130755055322",
+    "project_id": "skill-stack-fd941",
+    "storage_bucket": "skill-stack-fd941.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130755055322:android:96944019a4f516fbda5fe3",
+        "android_client_info": {
+          "package_name": "com.miningskills.skillstack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhUzoE4bOhYSnjSvfAV0mcwEPUNT6WVzQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
