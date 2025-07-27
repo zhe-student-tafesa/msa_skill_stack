@@ -33,7 +33,7 @@ const Test = () => {
       />
 
       <SkillStackButton
-        text={"Sign in with Business Account"}
+        text={"Write to database"}
         backgroundColor={Palette.skillStackBtnLightBlue}
         fontColor={Palette.skillStackButtonPrimary}
         onPress={() => {
